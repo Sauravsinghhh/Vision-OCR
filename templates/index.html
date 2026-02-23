@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionOCR - Intelligent Text Extraction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-eye-low-vision"></i>
+                <h1>Vision<span>OCR</span></h1>
+            </div>
+            <p class="tagline">Transform images into editable text instantly</p>
+        </header>
+
+        <section class="upload-section">
+            <div id="drop-zone" class="drop-zone">
+                <div class="drop-zone-content">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                    <h3>Drag & Drop Image</h3>
+                    <p>or <span>browse files</span></p>
+                    <input type="file" id="file-input" hidden accept="image/*">
+                </div>
+                <div id="preview-container" class="preview-container hidden">
+                    <img id="image-preview" src="" alt="Preview">
+                    <button id="remove-img" class="remove-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </div>
+
+            <button id="extract-btn" class="extract-btn" disabled>
+                <span class="btn-text">Extract Text</span>
+                <span class="loader hidden"></span>
+            </button>
+        </section>
+
+        <section id="result-section" class="result-section hidden">
+            <div class="result-header">
+                <h3>Extracted Results</h3>
+                <div class="result-actions">
+                    <button id="copy-btn" title="Copy to clipboard"><i class="fa-regular fa-copy"></i></button>
+                    <button id="download-btn" title="Download as text"><i class="fa-solid fa-download"></i></button>
+                </div>
+            </div>
+            <div class="result-body">
+                <textarea id="output-text" placeholder="Text will appear here..." readonly></textarea>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 VisionOCR. Powered by Python & Tesseract.</p>
+        </footer>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
